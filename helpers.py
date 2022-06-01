@@ -1,6 +1,7 @@
 def getTextFromFile(filepath):
+
     with open(filepath) as file:
-        return file.readlines()
+        return ''.join(file.readlines())
 
 
 def saveTextToFile(text, filepath):
