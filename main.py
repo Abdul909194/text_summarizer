@@ -1,5 +1,7 @@
+import sys
 import spacy
 from heapq import nlargest
+from helpers import logUsage
 from string import punctuation
 from spacy.lang.en.stop_words import STOP_WORDS
 
@@ -35,18 +37,11 @@ def summarize(text, per):
     return summary
 
 
-src_text = """
-It continues to amaze me; actually it is depressing that although our business leaders constantly confirm that innovation is in their top three priorities yet they stay stubbornly disengaged in facilitating this across their organizations, especially the larger ones.
-It is our senior leaders within organizations that have the ability to:
-link innovation to strategy, and
-create focus, engagement and passion for innovation, and
-direct funds and resources to good innovation programs, and
-speed good ideas to market as new business models, products and services, and
-ensure the processes and relevant metrics exist so innovation is sustainable and integrated.
-In mid-sized and large companies, leadership and engagement from CEOs and senior executives are vital to innovation success. What’s more, these leaders want innovation to happen, more consistently, more purposefully and with better result.
-Of course I am not suggesting this is all business leaders, but I would argue innovation and its ‘make up’ remains a mystery to most leaders. They are more than willing to allocate responsibility down the organization, failing to recognize their pivotal role in managing or orchestrating innovation engagement themselves, or even ensuring the mechanisms are fully in place. Why is this?
-Yet the absence of a well-articulated innovation strategy is by far the most important constraint for companies to reach their innovation targets.
-"""
+args = sys.argv
+
+if len(args) < 2:
+    logUsage()
+    exit(1)
 
 
 s = summarize(src_text, 0.5)
