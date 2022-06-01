@@ -8,7 +8,7 @@ args = sys.argv
 if len(args) >= 2:
     input_file = args[1]
     text = getTextFromFile(input_file)
-    summary = summarize(text, 0.5)
+    summary = summarize(text)
 
     if(len(args) > 2):
         output_file = args[2]
